@@ -1,0 +1,1 @@
+from guided_attention_model import GuidedAttentionModel

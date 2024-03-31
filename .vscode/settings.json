@@ -1,0 +1,17 @@
+{
+    "[python]": {
+      "editor.defaultFormatter": "ms-python.black-formatter",
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+      },
+    },
+    "isort.args": [
+      "--profile",
+      "black"
+    ],
+    // "python.analysis.typeCheckingMode": "basic",
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "git.openRepositoryInParentFolders": "always",
+    "python.languageServer": "Pylance", // Use Pylance for Python
+} 

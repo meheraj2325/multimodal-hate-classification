@@ -1,0 +1,6 @@
+transformers
+datasets
+wandb
+scikit-learn
+lightning
+pillow
