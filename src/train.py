@@ -3,7 +3,8 @@ import argparse
 import pandas as pd
 import pytorch_lightning as pl
 import wandb
-from config import (
+
+from configs import (
     batch_size,
     early_stopping_patience,
     gpus,
@@ -12,8 +13,7 @@ from config import (
     num_classes,
     train_backbone,
 )
-
-from datamodules import FBHateMemeDataModule
+from datamodules import FBHateMemeDatamodule
 from models import GuidedAttentionModel
 
 
@@ -22,7 +22,7 @@ def train(args):
     wandb.init(
         project="Multimodal-Hate-Classification",
         entity="ccds-bangla-nlp",
-        name="Training Guided Attention Model with freezed backbone",
+        name=args.wandb_run,
         dir="experiments",
     )
     # Load dataset
@@ -72,6 +72,7 @@ if __name__ == "__main__":
     parser.add_argument("--dataset", type=str, help="Name of the dataset")
     parser.add_argument("--data_dir", type=str, help="Directory containing dataset")
     parser.add_argument("--model_name", type=str, help="Name of the model")
+    parser.add_argument("--wandb_run", type=str, help="Name of the wandb run")
     parser.add_argument(
         "--batch_size", type=int, default=batch_size, help="Batch size for training"
     )
@@ -96,7 +97,7 @@ if __name__ == "__main__":
     parser.add_argument("--gpus", type=int, default=gpus, help="Number of GPUs to use")
     parser.add_argument(
         "--train_backbone",
-        action="store_true",
+        action="store_false",
         help="Set to train the parameters of both VIT and BERT models",
     )
 

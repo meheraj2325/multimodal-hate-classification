@@ -1,1 +1,1 @@
-from fb_hate_meme_datamodule import FBHateMemeDataModule
+from datamodules.datamodule import FBHateMemeDatamodule
